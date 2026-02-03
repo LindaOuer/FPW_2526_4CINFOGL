@@ -5,6 +5,7 @@ from .forms import ConferenceForm
 from .models import Conference
 from django.views.generic import ListView, DetailView, DeleteView, CreateView
 from django.urls import reverse_lazy
+from SessionApp.models import Session
 
 # Create your views here.
 def home(request):
@@ -39,6 +40,12 @@ class ConferenceDetailView(DetailView):
     model = Conference
     context_object_name = 'conference'
     template_name = 'Conference/conference_detail.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        conference = self.get_object()
+        context['sessions'] = Session.objects.filter(conference=conference)
+        return context
+        
     
 class ConferenceDeleteView(DeleteView):
     model = Conference
