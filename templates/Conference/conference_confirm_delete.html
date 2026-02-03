@@ -1,0 +1,8 @@
+<h1>Confirm Delete Conference</h1>
+<p>Are you sure you want to delete the conference "{{ conf.name}}"?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Confirm Delete</button>
+  <button type="reset">Cancel</button>
+</form>

@@ -8,4 +8,6 @@
     <p>Location: {{ conference.location }}</p>
     <p>Theme: {{ conference.theme }}</p>
     <p>Dates: {{ conference.start_date }} to {{ conference.end_date }}</p>
+   <br/>
+    <a href="{% url 'conference_delete_lv' conference.pk %}">Delete Conference</a>
 {% endfor %}

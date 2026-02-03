@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, about, profile, conferenceList, ConferenceListView, ConferenceDetailView
+from .views import ConferenceCreateView, home, about, profile, conferenceList, ConferenceListView, ConferenceDetailView, ConferenceDeleteView
 
 
 urlpatterns = [
@@ -9,4 +9,6 @@ urlpatterns = [
     path('conferences/', conferenceList, name='conference_list'),
     path('conferencesLV/', ConferenceListView.as_view(), name='conference_list_lv'),
     path('conference/<int:pk>/', ConferenceDetailView.as_view(), name='conference_detail_lv'),
+    path('conference/delete/<int:pk>/', ConferenceDeleteView.as_view(), name='conference_delete_lv'),
+    path('create/', ConferenceCreateView.as_view(), name='conference_create_lv'),
 ]
