@@ -20,4 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('conference/', include('ConferenceApp.urls')), # 127.0.01:8000/conference/
+    path('auth/', include('UserApp.urls')), # 127.0.01:8000/auth/
 ]
